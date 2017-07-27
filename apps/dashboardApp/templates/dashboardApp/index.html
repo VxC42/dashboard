@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+     <head>
+          <meta charset="utf-8">
+          {% load staticfiles %}
+          <link rel="stylesheet" href="{% static 'dashboardApp/css/bootstrap.css' %}">
+
+          <title>Home Page</title>
+     </head>
+     <body>
+          <div class="container">
+               <nav class="navbar">
+                    <div class="container-fluid">
+                         <div class="navbar-header">
+                         <a class="navbar-brand" href="/">TestApp</a>
+                         </div>
+                         <ul class="nav navbar-nav">
+                              <li class="active"><a href="/dashboard">Home</a></li>
+                         </ul>
+                         <ul class="nav navbar-nav navbar-right">
+                              <li><a href="/signin">Sign in</a></li>
+                         </ul>
+                    </div>
+               </nav>
+               <div class="panel panel-default">
+                    <div class="panel-heading">
+                    <h2>Welcome to the Test</h2>
+                    <h4>We're going to build a cool application using a MVC framework!  This application was built with the Village88 folks!</h4>
+                    <a href="/signin" class="btn btn-info" role="button">Start</a>
+                    </div>
+               </div>
+               <div class="container-fluid ">
+                    <div class="col-xs-1 col-sm-1 col-md-4 col-lg-4">
+                         <h3> Manage Users </h3>
+                         <p>Using this application, you'll learn how to add, remove, and edit users for the application.</p>
+                    </div>
+                    <div class="col-xs-1 col-sm-1 col-md-4 col-lg-4">
+                         <h3>Leave Messages </h3>
+                         <p>Users will be able to leave a message to another user using this application.</p>
+                    </div>
+                    <div class="col-xs-1 col-sm-1 col-md-4 col-lg-4">
+                         <h3>Edit User Information</h3>
+                         <p>Admins will be able to edit another user's information (email address, first name, last name, etc).</p>
+                    </div>
+               </div>
+
+          </div>
+     </body>
+</html>

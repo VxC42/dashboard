@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+     <head>
+          <meta charset="utf-8">
+          {% load staticfiles %}
+          <link rel="stylesheet" href="{% static 'dashboardApp/css/bootstrap.css' %}">
+          <title>Admin Dashboard</title>
+     </head>
+     <body>
+          <div class="container">
+               <nav class="navbar">
+                    <div class="container-fluid">
+                         <div class="navbar-header">
+                         <a class="navbar-brand" href="/">TestApp</a>
+                         </div>
+                         <ul class="nav navbar-nav">
+                              <li class="active"><a href="/dashboard">Dashboard</a></li>
+                              <li class="active"><a href="/profil">Profile</a></li>
+                         </ul>
+                         <ul class="nav navbar-nav navbar-right">
+                              <li><a href="/logoff">Log Off</a></li>
+                         </ul>
+                    </div>
+               </nav>{%if currentUser.level == 'admin'%}
+               <div class="container-fluid">
+                    <h4 class="pull-left">Manage Users</h4>
+                    <a href="/user/add" class="btn btn-info navbar-right" role="button">Add new</a>
+               </div>
+               {%else%}
+               <div class="container-fluid">
+                    <h4 class="pull-left">All Users</h4>
+               </div>
+               {%endif%}
+               <div class="container-fluid">
+                    <table class="table table-bordered table-striped">
+
+                         <tr>
+                              <th>ID</th>
+                              <th>Name</th>
+                              <th>Email</th>
+                              <th>Created At</th>
+                              <th>User Level</th>
+                              <th>Actions</th>
+
+                         </tr>{%for user in users%}
+                         <tr>
+                              <td>{{user.id}}</td>
+                              <td>{{user.first_name}} {{user.last_name}}</td>
+                              <td>{{user.email}}</td>
+                              <td>{{user.created_at}}</td>
+                              <td>{{user.level}}</td>
+                              {%if currentUser.level == 'admin'%}
+                              <td>
+                                   <a href="/admin_edit/{{user.id}}">edit</a>
+                                   <a href="user/delete/{{user.id}}">delete</a>
+                              </td>
+                              {%elif currentUser.id == user.id%}
+                              <td>
+                                   <a href="/edit">edit</a>
+                              </td>
+                              {%endif%}
+
+
+                         <tr>
+                              {%endfor%}
+               </div>
+
+          </div>
+     </body>
+</html>

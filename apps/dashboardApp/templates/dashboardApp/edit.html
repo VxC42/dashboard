@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+     <head>
+          <meta charset="utf-8">
+          {% load staticfiles %}
+          <link rel="stylesheet" href="{% static 'dashboardApp/css/bootstrap.css' %}">
+          <title>Edit User</title>
+     </head>
+     <body>
+          <div class="container">
+               <nav class="navbar">
+                    <div class="container-fluid">
+                         <div class="navbar-header">
+                         <a class="navbar-brand" href="/">TestApp</a>
+                         </div>
+                         <ul class="nav navbar-nav">
+                              <li class="active"><a href="/dashboard">Dashboard</a></li>
+                              <li class="active"><a href="/profil">Profile</a></li>
+                         </ul>
+                         <ul class="nav navbar-nav navbar-right">
+                              <li><a href="/logoff">Log Off</a></li>
+                         </ul>
+                    </div>
+               </nav>
+               <div class="container-fluid col-lg-6 panel">
+                    <form>
+                         <fieldset>
+                              <legend>Edit Information</legend>
+                              <p>Email Address:</p>
+                              <p><input type="text" name="email" value="user's emal"></p>
+                              <p>First Name:</p>
+                              <p><input type="text" name="first_name" value="user's name"></p>
+                              <p>Last Name:</p>
+                              <p><input type="text" name="last_name" value="user's name"></p>
+                              <a href="/infoUpdate" class="btn btn-info navbar-right" role="button">Save</a>
+                              {%csrf_token%}
+                         </fieldset>
+                    </form>
+               </div>
+               <div class="container-fluid col-lg-6 panel">
+                    <form>
+                         <fieldset>
+                              <legend>Change Password</legend>
+                              <p>Password:</p>
+                              <p><input type="password" name="password" value=""></p>
+                              <p>Confirm Password:</p>
+                              <p><input type="text" name="password" value=""></p>
+                              <a href="/passwordUpdate" class="btn btn-info navbar-right" role="button">Update Password</a>
+                              {%csrf_token%}
+                         </fieldset>
+                    </form>
+               </div>
+               <div class="container-fluid panel col-lg-12">
+                    <form>
+                         <fieldset>
+                              <legend>Edit Descriptions</legend>
+                              <textarea class="form-control" name="description" value=""></textarea>
+                              <a href="/descUpdate" class="btn btn-info navbar-right" role="button">Save</a>
+                              {%csrf_token%}
+                         </fieldset>
+                    </form>
+               </div>
+
+          </div>
+     </body>
+</html>

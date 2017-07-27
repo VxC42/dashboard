@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+     <head>
+          <meta charset="utf-8">
+          {% load staticfiles %}
+          <link rel="stylesheet" href="{% static 'dashboardApp/css/bootstrap.css' %}">
+          <title>Add a New User</title>
+     </head>
+     <body>
+          <div class="container">
+               <nav class="navbar">
+                    <div class="container-fluid">
+                         <div class="navbar-header">
+                         <a class="navbar-brand" href="/">TestApp</a>
+                         </div>
+                         <ul class="nav navbar-nav">
+                              <li class="active"><a href="/dashboard">Dashboard</a></li>
+                              <li class="active"><a href="/profil">Profile</a></li>
+                         </ul>
+                         <ul class="nav navbar-nav navbar-right">
+                              <li><a href="/logoff">Log Off</a></li>
+                         </ul>
+                    </div>
+               </nav>
+               <div class="container-fluid">
+                    <h4 class="pull-left">Add a new user</h4>
+                    <a href="/admin" class="btn btn-info navbar-right" role="button">Return to Dashboard</a>
+               </div>
+               <div class="container-fluid">
+                    <form action="/add" method="POST">
+                         {% csrf_token %}
+                         <p>Email Address: </p>
+                         <p><input type="text" name="email"></p>
+                         <p>First Name: </p>
+                         <p><input type="text" name="first_name"></p>
+                         <p>Last Name: </p>
+                         <p><input type="text" name="last_name"></p>
+                         <p>Password: </p>
+                         <p><input type="password" name="password"></p>
+                         <p>Confirm Password: </p>
+                         <p><input type="password" name="confirm_password"></p>
+                         <input type="submit" class="btn btn-info" value="Add User">
+                    </form>
+                    <br>
+                    
+
+          </div>
+     </body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+     <head>
+          <meta charset="utf-8">
+          {% load staticfiles %}
+          <link rel="stylesheet" href="{% static 'dashboardApp/css/bootstrap.css' %}">
+          <title>Sign In</title>
+     </head>
+     <body>
+          <div class="container">
+               <nav class="navbar">
+                    <div class="container-fluid">
+                         <div class="navbar-header">
+                         <a class="navbar-brand" href="/">TestApp</a>
+                         </div>
+                         <ul class="nav navbar-nav">
+                              <li class="active"><a href="/dashboard">Home</a></li>
+                         </ul>
+                         <ul class="nav navbar-nav navbar-right">
+                              <li><a href="/signin">Sign in</a></li>
+                         </ul>
+                    </div>
+               </nav>
+               <div class="container-fluid">
+                    <h4>Sign In</h4>
+                    {{error}}
+                    <form action="/login" method="POST">
+                         {{form.as_p}}
+                         {%csrf_token%}
+                         <input type="submit"  class="btn btn-info" value="Sign In">
+                    </form>
+                    <br>
+                    <p><a href="/signup"> Don't have an account? Register. </a></p>
+
+          </div>
+     </body>
+</html>
